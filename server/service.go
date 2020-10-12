@@ -27,28 +27,29 @@ import (
 	"math/big"
 	"net"
 	"net/http"
+	"reflect"
 	"strings"
 	"time"
 
-	"github.com/fatedier/frp/assets"
-	"github.com/fatedier/frp/models/auth"
-	"github.com/fatedier/frp/models/config"
-	modelmetrics "github.com/fatedier/frp/models/metrics"
-	"github.com/fatedier/frp/models/msg"
-	"github.com/fatedier/frp/models/nathole"
-	plugin "github.com/fatedier/frp/models/plugin/server"
-	"github.com/fatedier/frp/server/controller"
-	"github.com/fatedier/frp/server/group"
-	"github.com/fatedier/frp/server/metrics"
-	"github.com/fatedier/frp/server/ports"
-	"github.com/fatedier/frp/server/proxy"
-	"github.com/fatedier/frp/utils/log"
-	frpNet "github.com/fatedier/frp/utils/net"
-	"github.com/fatedier/frp/utils/tcpmux"
-	"github.com/fatedier/frp/utils/util"
-	"github.com/fatedier/frp/utils/version"
-	"github.com/fatedier/frp/utils/vhost"
-	"github.com/fatedier/frp/utils/xlog"
+	"github.com/HaidyCao/frp_0320/assets"
+	"github.com/HaidyCao/frp_0320/models/auth"
+	"github.com/HaidyCao/frp_0320/models/config"
+	modelmetrics "github.com/HaidyCao/frp_0320/models/metrics"
+	"github.com/HaidyCao/frp_0320/models/msg"
+	"github.com/HaidyCao/frp_0320/models/nathole"
+	plugin "github.com/HaidyCao/frp_0320/models/plugin/server"
+	"github.com/HaidyCao/frp_0320/server/controller"
+	"github.com/HaidyCao/frp_0320/server/group"
+	"github.com/HaidyCao/frp_0320/server/metrics"
+	"github.com/HaidyCao/frp_0320/server/ports"
+	"github.com/HaidyCao/frp_0320/server/proxy"
+	"github.com/HaidyCao/frp_0320/utils/log"
+	frpNet "github.com/HaidyCao/frp_0320/utils/net"
+	"github.com/HaidyCao/frp_0320/utils/tcpmux"
+	"github.com/HaidyCao/frp_0320/utils/util"
+	"github.com/HaidyCao/frp_0320/utils/version"
+	"github.com/HaidyCao/frp_0320/utils/vhost"
+	"github.com/HaidyCao/frp_0320/utils/xlog"
 
 	"github.com/fatedier/golib/net/mux"
 	fmux "github.com/hashicorp/yamux"
@@ -316,7 +317,14 @@ func (svr *Service) Run() {
 
 // Stop 停止服务
 func (svr *Service) Stop() error {
-	err := svr.muxer.Close()
+	var err error
+	value := reflect.ValueOf(svr.muxer)
+	lnValue := value.Elem().FieldByName("ln")
+	ln, ok := lnValue.Interface().(net.Listener)
+	if ok && ln != nil {
+		err = ln.Close()
+	}
+
 	if svr.listener != nil {
 		_ = svr.listener.Close()
 	}

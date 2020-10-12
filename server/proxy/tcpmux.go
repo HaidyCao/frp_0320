@@ -18,10 +18,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fatedier/frp/models/config"
-	"github.com/fatedier/frp/models/consts"
-	"github.com/fatedier/frp/utils/util"
-	"github.com/fatedier/frp/utils/vhost"
+	"github.com/HaidyCao/frp_0320/models/config"
+	"github.com/HaidyCao/frp_0320/models/consts"
+	"github.com/HaidyCao/frp_0320/utils/util"
+	"github.com/HaidyCao/frp_0320/utils/vhost"
 )
 
 type TcpMuxProxy struct {

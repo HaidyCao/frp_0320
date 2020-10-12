@@ -17,7 +17,7 @@ package mem
 import (
 	"time"
 
-	"github.com/fatedier/frp/utils/metric"
+	"github.com/HaidyCao/frp_0320/utils/metric"
 )
 
 const (

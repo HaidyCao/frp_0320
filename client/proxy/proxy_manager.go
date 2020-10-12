@@ -6,10 +6,10 @@ import (
 	"net"
 	"sync"
 
-	"github.com/fatedier/frp/client/event"
-	"github.com/fatedier/frp/models/config"
-	"github.com/fatedier/frp/models/msg"
-	"github.com/fatedier/frp/utils/xlog"
+	"github.com/HaidyCao/frp_0320/client/event"
+	"github.com/HaidyCao/frp_0320/models/config"
+	"github.com/HaidyCao/frp_0320/models/msg"
+	"github.com/HaidyCao/frp_0320/utils/xlog"
 
 	"github.com/fatedier/golib/errors"
 )

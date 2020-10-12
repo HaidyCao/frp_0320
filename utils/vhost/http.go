@@ -25,8 +25,8 @@ import (
 	"strings"
 	"time"
 
-	frpLog "github.com/fatedier/frp/utils/log"
-	"github.com/fatedier/frp/utils/util"
+	frpLog "github.com/HaidyCao/frp_0320/utils/log"
+	"github.com/HaidyCao/frp_0320/utils/util"
 
 	"github.com/fatedier/golib/pool"
 )

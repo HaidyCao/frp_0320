@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/fatedier/frp/utils/util"
-	"github.com/fatedier/frp/utils/vhost"
+	"github.com/HaidyCao/frp_0320/utils/util"
+	"github.com/HaidyCao/frp_0320/utils/vhost"
 )
 
 type HttpConnectTcpMuxer struct {

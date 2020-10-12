@@ -20,12 +20,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fatedier/frp/models/auth"
-	"github.com/fatedier/frp/models/config"
-	"github.com/fatedier/frp/server"
-	"github.com/fatedier/frp/utils/log"
-	"github.com/fatedier/frp/utils/util"
-	"github.com/fatedier/frp/utils/version"
+	"github.com/HaidyCao/frp_0320/models/auth"
+	"github.com/HaidyCao/frp_0320/models/config"
+	"github.com/HaidyCao/frp_0320/server"
+	"github.com/HaidyCao/frp_0320/utils/log"
+	"github.com/HaidyCao/frp_0320/utils/util"
+	"github.com/HaidyCao/frp_0320/utils/version"
 )
 
 const (
